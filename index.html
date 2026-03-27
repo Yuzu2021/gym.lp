@@ -3,46 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>apricot gym｜パーソナルトレーニング</title>
+<title>apricot gym</title>
 
 <style>
 body {
   margin: 0;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: sans-serif;
   background: #0f0f0f;
   color: #fff;
 }
 
-/* 共通 */
+img {
+  width: 100%;
+  display: block;
+}
+
 section {
   padding: 60px 20px;
   text-align: center;
 }
 
-h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.7;
-}
-
-/* ヘッダー */
-.hero img {
-  width: 100%;
-  display: block;
-}
-
-/* CTA */
 .cta {
   background: linear-gradient(45deg, #ffcc00, #ff9900);
   color: #000;
-  padding: 30px;
-}
-
-.cta h2 {
-  font-size: 32px;
+  padding: 40px 20px;
 }
 
 .cta a {
@@ -53,10 +37,8 @@ p {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 5px;
 }
 
-/* セクション */
 .dark {
   background: #1a1a1a;
 }
@@ -66,36 +48,12 @@ p {
   font-weight: bold;
 }
 
-/* 画像 */
-.section-img img {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  display: block;
-  border-radius: 10px;
-}
-
-/* カード */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
 .card {
   background: #222;
   padding: 20px;
-  width: 280px;
+  margin: 10px auto;
+  max-width: 300px;
   border-radius: 10px;
-}
-
-/* フッター */
-footer {
-  background: #000;
-  padding: 30px;
-  text-align: center;
-  font-size: 14px;
 }
 </style>
 
@@ -103,55 +61,52 @@ footer {
 
 <body>
 
-<!-- TOPバナー -->
-<div class="hero">
-  <img src="banner.gym.jpeg" alt="バナー">
-</div>
+<!-- 上バナー -->
+<img src="./banner.gym.jpeg">
 
 <!-- CTA -->
 <section class="cta">
-  <h2>今だけ入会金無料</h2>
-  <p>さらに <strong>500円で体験可能</strong></p>
+  <h2>入会金無料</h2>
+  <p><strong>500円で体験できます</strong></p>
   <a href="#">LINEで予約する</a>
 </section>
 
 <!-- コンセプト -->
 <section>
-  <h2>選ばれる理由</h2>
+  <h2>結果にこだわるパーソナルジム</h2>
   <p>
-    完全マンツーマン指導で<br>
-    あなたに最適なトレーニングを提供<br><br>
-    <span class="gold">結果にこだわる大人のためのジム</span>
+    完全個別指導で最短で理想の身体へ<br>
+    <span class="gold">大人のための本格トレーニング</span>
   </p>
 </section>
 
-<!-- メイン画像 -->
-<section class="section-img">
-  <img src="gym.k.jpeg" alt="トレーニング">
-</section>
+<!-- 中央画像 -->
+<img src="./gym.k.jpeg">
 
 <!-- 強み -->
 <section class="dark">
-  <h2>他のジムとの違い</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>完全個別指導</h3>
-      <p>一人ひとりに合わせたメニュー</p>
-    </div>
-    <div class="card">
-      <h3>食事サポート</h3>
-      <p>無理のない食事管理</p>
-    </div>
-    <div class="card">
-      <h3>少人数制</h3>
-      <p>最大2名までのパーソナル</p>
-    </div>
+  <h2>選ばれる理由</h2>
+
+  <div class="card">
+    <h3>完全マンツーマン</h3>
+    <p>あなた専用メニュー</p>
   </div>
+
+  <div class="card">
+    <h3>食事サポート</h3>
+    <p>無理なく続く指導</p>
+  </div>
+
+  <div class="card">
+    <h3>少人数制</h3>
+    <p>最大2名まで</p>
+  </div>
+
 </section>
 
 <!-- 料金 -->
 <section>
-  <h2>料金プラン</h2>
+  <h2>料金</h2>
   <p>
     月4回コース<br>
     <span class="gold" style="font-size:28px;">20,000円</span><br>
@@ -159,34 +114,22 @@ footer {
   </p>
 </section>
 
-<!-- 体験誘導 -->
+<!-- 体験 -->
 <section class="cta">
   <h2>まずは500円体験</h2>
-  <p>無理な勧誘は一切ありません</p>
   <a href="#">今すぐ予約</a>
 </section>
 
 <!-- その他画像 -->
-<section class="section-img">
-  <img src="gym.500yen.jpg" alt="">
-  <img src="images.gym.jpeg" alt="">
-  <img src="lp.gym.jpg" alt="">
-</section>
+<img src="./gym.500yen.jpg">
+<img src="./images.gym.jpeg">
+<img src="./lp.gym.jpg">
 
 <!-- クロージング -->
 <section class="dark">
   <h2>変わるなら今</h2>
-  <p>
-    身体が変われば人生が変わる<br><br>
-    あなたも理想の体へ
-  </p>
+  <p>あなたも理想の体へ</p>
 </section>
-
-<!-- フッター -->
-<footer>
-  apricot gym / にしむら整骨院<br>
-  熊本市南区御幸笛田
-</footer>
 
 </body>
 </html>

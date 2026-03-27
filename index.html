@@ -9,51 +9,64 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #0f0f0f;
+  background: linear-gradient(to bottom, #111, #ffcc00);
   color: #fff;
 }
 
+/* 画像 */
 img {
   width: 100%;
   display: block;
 }
 
+/* セクション */
 section {
   padding: 60px 20px;
   text-align: center;
 }
 
+/* CTA */
 .cta {
-  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  background: linear-gradient(45deg, #ffcc00, #ff6600);
   color: #000;
-  padding: 40px 20px;
 }
 
-.cta a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 30px;
-  background: #000;
+/* カード */
+.card {
+  background: rgba(0,0,0,0.7);
+  margin: 10px auto;
+  padding: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+/* LINEボタン（動く） */
+.line-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00c300;
   color: #fff;
-  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 50px;
   font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+  animation: bounce 1.5s infinite;
 }
 
-.dark {
-  background: #1a1a1a;
+/* アニメーション */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
+/* 見出し */
 .gold {
   color: #ffcc00;
   font-weight: bold;
-}
-
-.card {
-  background: #222;
-  padding: 20px;
-  margin: 10px auto;
-  max-width: 300px;
-  border-radius: 10px;
 }
 </style>
 
@@ -61,75 +74,61 @@ section {
 
 <body>
 
-<!-- 上バナー -->
-<img src="./banner.gym.jpeg">
+<!-- バナー -->
+<img src="./banner.gym.jpg">
 
 <!-- CTA -->
 <section class="cta">
   <h2>入会金無料</h2>
-  <p><strong>500円で体験できます</strong></p>
-  <a href="#">LINEで予約する</a>
+  <p><strong>500円で体験</strong></p>
 </section>
 
 <!-- コンセプト -->
 <section>
-  <h2>結果にこだわるパーソナルジム</h2>
-  <p>
-    完全個別指導で最短で理想の身体へ<br>
-    <span class="gold">大人のための本格トレーニング</span>
-  </p>
+  <h2>理想の身体を手に入れる</h2>
+  <p class="gold">本気で変わりたいあなたへ</p>
 </section>
 
-<!-- 中央画像 -->
-<img src="./gym.k.jpeg">
+<!-- メイン画像 -->
+<img src="./gym.k.jpg">
 
 <!-- 強み -->
-<section class="dark">
+<section>
   <h2>選ばれる理由</h2>
 
   <div class="card">
-    <h3>完全マンツーマン</h3>
-    <p>あなた専用メニュー</p>
+    完全マンツーマン指導
   </div>
 
   <div class="card">
-    <h3>食事サポート</h3>
-    <p>無理なく続く指導</p>
+    食事サポートあり
   </div>
 
   <div class="card">
-    <h3>少人数制</h3>
-    <p>最大2名まで</p>
+    最大2名の少人数制
   </div>
 
 </section>
 
 <!-- 料金 -->
-<section>
-  <h2>料金</h2>
-  <p>
-    月4回コース<br>
-    <span class="gold" style="font-size:28px;">20,000円</span><br>
-    （1回50分）
-  </p>
+<section class="cta">
+  <h2>月4回 20,000円</h2>
 </section>
 
 <!-- 体験 -->
-<section class="cta">
+<section>
   <h2>まずは500円体験</h2>
-  <a href="#">今すぐ予約</a>
 </section>
 
-<!-- その他画像 -->
+<!-- 画像 -->
 <img src="./gym.500yen.jpg">
 <img src="./images.gym.jpeg">
 <img src="./lp.gym.jpg">
 
-<!-- クロージング -->
-<section class="dark">
-  <h2>変わるなら今</h2>
-  <p>あなたも理想の体へ</p>
-</section>
+<!-- LINEボタン -->
+<a href="https://lin.ee/あなたのURL" class="line-btn">
+  LINE予約はこちら
+</a>
 
 </body>
 </html>

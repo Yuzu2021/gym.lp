@@ -55,18 +55,33 @@ section {
   animation: bounce 1.5s infinite;
 }
 
-/* 電話ボタン（画像の上に透明で配置） */
+/* 電話ボタン（固定） */
+.tel-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 140px;
+  background: #ff6600;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: bounce 1.5s infinite;
+}
+
+/* 画像内電話タップ */
 .tel-wrap {
   position: relative;
 }
 
 .tel-btn {
   position: absolute;
-  bottom: 20%;
+  top: 72%;   /* ←ここで電話番号位置調整 */
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  height: 80px;
+  width: 60%;
+  height: 60px;
 }
 
 /* アニメーション */
@@ -93,7 +108,7 @@ section {
 <!-- CTA -->
 <section class="cta">
   <h2>🌟入会金無料🌟</h2>
-  <p><strong>「500円」で体験‼️</strong></p>
+  <p><strong>500円で体験‼️</strong></p>
 </section>
 
 <!-- 外観 -->
@@ -104,10 +119,10 @@ section {
   <h2>✨理想の身体を手に入れる✨</h2>
   <p class="gold">本気で変わりたいあなたへ</p>
 </section>
-  
-<!-- ジム内装 -->
+
+<!-- 内装 -->
 <img src="./S__71884805_0.jpg">
-  
+
 <!-- メイン -->
 <img src="./gym.k.jpg">
 
@@ -115,9 +130,9 @@ section {
 <section>
   <h2>【選ばれる理由】</h2>
 
-  <div class="card">💪知識豊富なプロからの指導‼️</div>
-  <div class="card">🍖食事サポートあり🍽️</div>
-  <div class="card">🏋️ボディメイク大会入賞者の在籍🎖️</div>
+  <div class="card">💪知識豊富なプロからの指導</div>
+  <div class="card">🍖食事サポートあり</div>
+  <div class="card">🏋️大会入賞者在籍</div>
 
 </section>
 
@@ -135,27 +150,31 @@ section {
 </section>
 
 <section class="cta">
-  <h4>※残った回数の翌月への繰越はございません</h4>
+  <h4>※翌月繰越なし</h4>
 </section>
 
 <!-- 体験 -->
 <section>
-  <h2>⭐️まずは500円(30分間)で体験⭐️</h2>
+  <h2>⭐️500円体験（30分）⭐️</h2>
 </section>
 
 <!-- 画像 -->
 <img src="./gym.500yen.jpg">
 <img src="./images.gym.jpeg">
 
-<!-- 🔥電話ボタン付き画像 -->
+<!-- 電話画像 -->
 <div class="tel-wrap">
   <img src="./lp.gym.jpg">
   <a href="tel:09023559371" class="tel-btn"></a>
 </div>
 
-<!-- LINEボタン -->
+<!-- 固定ボタン -->
+<a href="tel:09023559371" class="tel-fixed">
+  📞 電話する
+</a>
+
 <a href="https://lin.ee/98zcZXy" class="line-btn">
-  LINE予約はこちら
+  LINE予約
 </a>
 
 </body>

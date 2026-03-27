@@ -40,7 +40,7 @@ section {
   border-radius: 10px;
 }
 
-/* LINEボタン（動く） */
+/* LINEボタン */
 .line-btn {
   position: fixed;
   bottom: 20px;
@@ -52,8 +52,21 @@ section {
   font-weight: bold;
   text-decoration: none;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-
   animation: bounce 1.5s infinite;
+}
+
+/* 電話ボタン（画像の上に透明で配置） */
+.tel-wrap {
+  position: relative;
+}
+
+.tel-btn {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80px;
 }
 
 /* アニメーション */
@@ -76,61 +89,51 @@ section {
 
 <!-- バナー -->
 <img src="./banner.gym.jpg">
-  
+
 <!-- CTA -->
 <section class="cta">
   <h2>🌟入会金無料🌟</h2>
   <p><strong>「500円」で体験‼️</strong></p>
 </section>
-  
-<!-- 外観 -->
-<div class="tel-wrap">
-  <img src="./lp.gym.jpg">
 
-  <a href="tel:09023559371" class="tel-btn"></a>
-</div>
-  
+<!-- 外観 -->
+<img src="./1.jpg">
+
 <!-- コンセプト -->
 <section>
   <h2>✨理想の身体を手に入れる✨</h2>
   <p class="gold">本気で変わりたいあなたへ</p>
 </section>
+  
 <!-- ジム内装 -->
 <img src="./S__71884805_0.jpg">
-<!-- メイン画像 -->
+  
+<!-- メイン -->
 <img src="./gym.k.jpg">
 
 <!-- 強み -->
 <section>
   <h2>【選ばれる理由】</h2>
 
-  <div class="card">
-    知識豊富なプロからの指導
-  </div>
-
-  <div class="card">
-    食事サポートあり☺️
-  </div>
-
-  <div class="card">
-    ボディメイク大会入賞者の在籍
-  </div>
+  <div class="card">知識豊富なプロからの指導</div>
+  <div class="card">食事サポートあり☺️</div>
+  <div class="card">ボディメイク大会入賞者の在籍</div>
 
 </section>
-  
- <!-- 西村 -->
-<img src="./3.jpg"> 
-  
-<!-- 大里 -->
+
+<!-- トレーナー -->
+<img src="./3.jpg">
 <img src="./2.jpg">
-  
+
 <!-- 料金 -->
 <section class="cta">
   <h2>【月額制】</h2>
 </section>
+
 <section class="cta">
   <h2>月4回 20,000円</h2>
 </section>
+
 <section class="cta">
   <h4>※残った回数の翌月への繰越はございません</h4>
 </section>
@@ -143,7 +146,12 @@ section {
 <!-- 画像 -->
 <img src="./gym.500yen.jpg">
 <img src="./images.gym.jpeg">
-<img src="./lp.gym.jpg">
+
+<!-- 🔥電話ボタン付き画像 -->
+<div class="tel-wrap">
+  <img src="./lp.gym.jpg">
+  <a href="tel:09012345678" class="tel-btn"></a>
+</div>
 
 <!-- LINEボタン -->
 <a href="https://lin.ee/98zcZXy" class="line-btn">

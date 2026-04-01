@@ -6,8 +6,13 @@
 <title>apricot gym</title>
 
 <style>
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
   font-family: sans-serif;
   background: linear-gradient(to bottom, #111, #ffcc00);
   color: #fff;
@@ -40,11 +45,11 @@ section {
   border-radius: 10px;
 }
 
-/* LINEボタン */
+/* LINEボタン（左） */
 .line-btn {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   background: #00c300;
   color: #fff;
   padding: 15px 20px;
@@ -55,12 +60,12 @@ section {
   animation: bounce 1.5s infinite;
 }
 
-/* 電話ボタン（固定） */
+/* 電話ボタン（右） */
 .tel-fixed {
   position: fixed;
   bottom: 20px;
-  right: 140px;
-  background: #ff6600;
+  right: 20px;
+  background: #ff3b3b;
   color: #fff;
   padding: 15px 20px;
   border-radius: 50px;
@@ -96,6 +101,14 @@ section {
   color: #ffcc00;
   font-weight: bold;
 }
+
+/* 🔥 500円強調 */
+.price {
+  font-size: 38px;
+  color: #ff3b3b;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,0,0,0.6);
+}
 </style>
 
 </head>
@@ -111,7 +124,7 @@ section {
 熊本で本気で変わりたいあなたへ
 </h1>
 
-<p style="font-size:32px; color:#ffcc00; font-weight:bold;">
+<p class="price">
 初回体験500円
 </p>
 
@@ -179,7 +192,6 @@ font-weight:bold;
   <div class="card">💪知識豊富なプロからの指導</div>
   <div class="card">🍖食事サポートあり</div>
   <div class="card">🏋️大会入賞者在籍</div>
-
 </section>
 
 <!-- トレーナー -->
@@ -223,7 +235,7 @@ font-weight:bold;
 </a>
 
 <a href="https://lin.ee/tLpiKUi" class="line-btn">
-  今すぐLINE予約
+  LINE予約
 </a>
 
 </body>

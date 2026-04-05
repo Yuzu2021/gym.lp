@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APRICOT GYM 診断</title>
+<title>apricot gym 診断</title>
 
 <!-- Meta Pixel -->
 <script>
@@ -20,7 +20,7 @@ s.parentNode.insertBefore(t,s)}
 (window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '508478480441055');
+fbq('init', 'ここにピクセルID');
 fbq('track', 'PageView');
 </script>
 
@@ -28,174 +28,192 @@ fbq('track', 'PageView');
 body {
   margin: 0;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, #222, #ffcc00);
+  background: #111;
   color: #fff;
   text-align: center;
 }
 
-header {
-  padding: 50px 20px 20px;
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
 }
 
-header h1 {
-  font-size: 26px;
-  font-weight: bold;
-  line-height: 1.5;
+.progress {
+  height: 6px;
+  background: #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.sub {
-  color: #ccc;
-  font-size: 14px;
-  margin-top: 10px;
+.progress-bar {
+  height: 6px;
+  background: #ffcc00;
+  width: 0%;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-section {
-  padding: 30px 20px;
+.fade {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 button {
   display: block;
-  width: 90%;
-  max-width: 340px;
-  margin: 12px auto;
-  padding: 18px;
-  border-radius: 12px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 16px;
   border: none;
+  border-radius: 10px;
   background: #ffcc00;
   color: #000;
-  font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-size: 16px;
 }
 
 .hidden {
   display: none;
 }
 
-.result {
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
 .line-btn {
   display: block;
-  margin: 30px auto;
+  margin-top: 20px;
+  padding: 18px;
   background: #00c300;
   color: #fff;
-  padding: 18px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  max-width: 320px;
-  font-size: 18px;
 }
 
-.note {
+.small {
   font-size: 12px;
-  color: #eee;
+  color: #ccc;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥刺さるファーストビュー -->
-<header>
-<h1>
-3ヶ月で体が変わらなかった人へ
-</h1>
+<div class="container">
 
-<p style="font-size:20px; font-weight:bold; color:#ffcc00;">
-あなたに合うダイエット法が<br>30秒でわかる
+<!-- 共感 -->
+<div id="intro" class="fade">
+<h2>こんなお悩みありませんか？</h2>
+<p>
+・何をしても痩せない<br>
+・リバウンドばかり<br>
+・運動が続かない
 </p>
 
-<p class="sub">
-※無理な勧誘なし・初心者OK
-</p>
-</header>
+<button onclick="start()">はい、あります</button>
+</div>
+
+<!-- プログレス -->
+<div class="progress hidden" id="progressWrap">
+<div class="progress-bar" id="progressBar"></div>
+</div>
 
 <!-- Q1 -->
-<section id="q1">
-<h2>あなたの目的は？</h2>
-<button onclick="setType('diet')">本気で痩せたい</button>
-<button onclick="setType('muscle')">かっこいい体になりたい</button>
-<button onclick="setType('health')">運動不足を解消したい</button>
-</section>
+<div id="q1" class="hidden fade">
+<h3>Q1. あなたの目的は？</h3>
+<button onclick="next(1,'diet')">本気で痩せたい</button>
+<button onclick="next(1,'muscle')">かっこいい体になりたい</button>
+<button onclick="next(1,'health')">健康目的</button>
+</div>
 
 <!-- Q2 -->
-<section id="q2" class="hidden">
-<h2>今一番の悩みは？</h2>
-<button onclick="setLevel('low')">何をしても痩せない</button>
-<button onclick="setLevel('mid')">リバウンドしてしまう</button>
-<button onclick="setLevel('high')">やり方がわからない</button>
-</section>
+<div id="q2" class="hidden fade">
+<h3>Q2. 今一番の悩みは？</h3>
+<button onclick="next(2)">何をしても痩せない</button>
+<button onclick="next(2)">リバウンド</button>
+<button onclick="next(2)">やり方がわからない</button>
+</div>
 
 <!-- Q3 -->
-<section id="q3" class="hidden">
-<h2>現在の運動習慣は？</h2>
-<button onclick="showResult('beginner')">ほぼしていない</button>
-<button onclick="showResult('middle')">週1くらい</button>
-<button onclick="showResult('advanced')">定期的にしている</button>
-</section>
+<div id="q3" class="hidden fade">
+<h3>Q3. 運動習慣は？</h3>
+<button onclick="showResult()">ほぼしていない</button>
+<button onclick="showResult()">週1くらい</button>
+<button onclick="showResult()">定期的にしている</button>
+</div>
 
 <!-- RESULT -->
-<section id="result" class="hidden">
+<div id="result" class="hidden fade">
 <h2>診断結果</h2>
 
-<p id="resultText" class="result"></p>
+<p id="resultText"></p>
 
 <p>
-あなたには<br>
-<strong>プロの管理トレーニング</strong>が必要です
+多くの人が間違った方法で失敗しています。<br>
+正しい方法なら変われます。
 </p>
 
-<p style="color:#ffcc00; font-size:20px; font-weight:bold;">
-今だけ体験500円
+<p style="color:#ffcc00; font-weight:bold;">
+先着10名限定：体験500円
+</p>
+
+<p class="small">
+・初心者90%以上<br>
+・3ヶ月で−8kg実績あり
 </p>
 
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
 class="line-btn">
-今すぐLINEで予約する
+今すぐ無料で相談する
 </a>
 
-<p class="note">
-※無理な勧誘は一切ありません
+<p class="small">
+※無理な勧誘はありません
 </p>
-</section>
+
+</div>
+
+</div>
 
 <script>
+let step = 0;
 let userType = "";
 
-function setType(type){
-  userType = type;
-  next('q2');
+function start(){
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("progressWrap").classList.remove("hidden");
+  document.getElementById("q1").classList.remove("hidden");
+  updateProgress();
 }
 
-function setLevel(level){
-  next('q3');
+function next(q, type){
+  if(type) userType = type;
+  document.getElementById("q"+q).classList.add("hidden");
+  document.getElementById("q"+(q+1)).classList.remove("hidden");
+  step++;
+  updateProgress();
 }
 
-function next(id){
-  document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
+function updateProgress(){
+  let percent = (step/3)*100;
+  document.getElementById("progressBar").style.width = percent + "%";
 }
 
 function showResult(){
-  let text = "";
+  document.getElementById("q3").classList.add("hidden");
 
+  let text = "";
   if(userType === "diet"){
-    text = "あなたは【痩せたいのに続かないタイプ】です";
+    text = "あなたは【痩せたいのに続かず失敗してきたタイプ】です";
   } else if(userType === "muscle"){
-    text = "あなたは【自己流で伸び悩みタイプ】です";
+    text = "あなたは【自己流で伸び悩んでいるタイプ】です";
   } else {
-    text = "あなたは【運動不足改善タイプ】です";
+    text = "あなたは【運動不足改善が必要なタイプ】です";
   }
 
   document.getElementById("resultText").innerHTML = text;
-
-  document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
   document.getElementById("result").classList.remove("hidden");
 
   fbq('track','Lead');

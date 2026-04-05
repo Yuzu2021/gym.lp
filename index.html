@@ -91,6 +91,23 @@ button {
   font-weight: bold;
 }
 
+.fixed-btn {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 360px;
+  padding: 16px;
+  background: #00c300;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 999;
+  text-decoration: none;
+}
+
 .small {
   font-size: 12px;
   color: #ccc;
@@ -111,9 +128,13 @@ img {
 <!-- 共感 -->
 <div id="intro" class="fade">
 
-<!-- 🔥外観画像（信頼アップ） -->
+<!-- 🔥外観 -->
 <img src="gaikan.jpg">
 <p class="small">※実際の店舗外観です</p>
+
+<!-- 🔥トレーニング（最初に見せる） -->
+<img src="training1.jpg">
+<img src="training2.jpg">
 
 <h2>こんなお悩みありませんか？</h2>
 <p>
@@ -129,10 +150,6 @@ img {
 <div class="progress hidden" id="progressWrap">
 <div class="progress-bar" id="progressBar"></div>
 </div>
-
-<!-- 🔥トレーニング風景 -->
-<img src="training1.jpg">
-<img src="training2.jpg">
 
 <!-- Q1 -->
 <div id="q1" class="hidden fade">
@@ -173,9 +190,13 @@ img {
 先着10名限定：体験500円
 </p>
 
+<p style="color:#ffcc00; font-weight:bold;">
+3ヶ月で−8kg達成
+</p>
+
 <p class="small">
 ・初心者90%以上<br>
-・3ヶ月で−8kg実績あり
+・継続率90%
 </p>
 
 <!-- 🔥ビフォーアフター -->
@@ -186,7 +207,7 @@ img {
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
 class="line-btn">
-今すぐ無料で相談する
+今すぐLINEで体験予約する（500円）
 </a>
 
 <p class="small">
@@ -196,6 +217,13 @@ class="line-btn">
 </div>
 
 </div>
+
+<!-- 🔥追従ボタン（常に表示） -->
+<a href="https://lin.ee/tLpiKUi"
+onclick="fbq('track','Lead')"
+class="fixed-btn">
+LINEで予約する
+</a>
 
 <script>
 let step = 0;

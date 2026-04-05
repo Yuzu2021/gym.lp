@@ -27,7 +27,7 @@ fbq('track', 'PageView');
 <style>
 body {
   margin: 0;
-  padding-bottom: 100px;
+  padding-bottom: 110px;
   font-family: sans-serif;
   background: #111;
   color: #fff;
@@ -107,6 +107,7 @@ button {
   font-weight: bold;
   z-index: 999;
   text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
 }
 
 .small {
@@ -193,28 +194,30 @@ img {
 ・継続率90%
 </p>
 
-<!-- 🔥トレーナーボタン -->
+<!-- 🔥トレーナー -->
 <button onclick="toggleTrainer()">トレーナー情報を見る</button>
 
-<!-- 🔥トレーナー -->
 <div id="trainerBox" class="hidden">
 
 <h3>トレーナー紹介</h3>
 
-<img src="3.jpg">
+<img src="trainer1.jpg">
 <p class="small">
+【トレーナー名】<br>
 ・大会入賞経験あり<br>
-・指導歴4年<br>
+・指導歴○年<br>
 ・ボディメイク専門
 </p>
 
-<img src="2.jpg">
+<img src="trainer2.jpg">
 <p class="small">
+【トレーナー名】<br>
 ・初心者指導が得意<br>
-・指導歴4年<br>
 ・女性サポート多数<br>
-・リバウンド対策とボディメイクも得意
+・リバウンド対策
 </p>
+
+<button onclick="toggleTrainer()">閉じる</button>
 
 </div>
 
@@ -285,13 +288,11 @@ function showResult(){
   fbq('track','Lead');
 }
 
-/* トレーナー表示 */
 function toggleTrainer(){
   const box = document.getElementById("trainerBox");
   box.classList.toggle("hidden");
 }
 
-/* スクロール制御 */
 window.addEventListener("scroll", function() {
   const intro = document.getElementById("intro");
   const btn = document.getElementById("fixedBtn");

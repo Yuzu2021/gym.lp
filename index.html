@@ -27,7 +27,7 @@ fbq('track', 'PageView');
 <style>
 body {
   margin: 0;
-  padding-bottom: 100px; /* ←これで被り防止 */
+  padding-bottom: 100px;
   font-family: sans-serif;
   background: #111;
   color: #fff;
@@ -126,7 +126,6 @@ img {
 
 <div class="container">
 
-<!-- 共感 -->
 <div id="intro" class="fade">
 
 <img src="gaikan.jpg">
@@ -170,6 +169,7 @@ img {
 <button onclick="showResult()">定期的にしている</button>
 </div>
 
+<!-- RESULT -->
 <div id="result" class="hidden fade">
 <h2>診断結果</h2>
 
@@ -193,6 +193,31 @@ img {
 ・継続率90%
 </p>
 
+<!-- 🔥トレーナーボタン -->
+<button onclick="toggleTrainer()">トレーナー情報を見る</button>
+
+<!-- 🔥トレーナー -->
+<div id="trainerBox" class="hidden">
+
+<h3>トレーナー紹介</h3>
+
+<img src="3.jpg">
+<p class="small">
+・大会入賞経験あり<br>
+・指導歴4年<br>
+・ボディメイク専門
+</p>
+
+<img src="2.jpg">
+<p class="small">
+・初心者指導が得意<br>
+・指導歴4年<br>
+・女性サポート多数<br>
+・リバウンド対策とボディメイクも得意
+</p>
+
+</div>
+
 <h3>実際の変化</h3>
 <img src="i.jpg">
 <img src="beforeafter2.jpg">
@@ -200,7 +225,7 @@ img {
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
 class="line-btn">
-今すぐLINEで体験予約する（500円）
+あと3名｜今すぐLINEで体験予約する（500円）
 </a>
 
 <p class="small">
@@ -211,7 +236,6 @@ class="line-btn">
 
 </div>
 
-<!-- 追従ボタン -->
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
 class="fixed-btn"
@@ -261,7 +285,13 @@ function showResult(){
   fbq('track','Lead');
 }
 
-/* 🔥スクロールで追従ボタン制御 */
+/* トレーナー表示 */
+function toggleTrainer(){
+  const box = document.getElementById("trainerBox");
+  box.classList.toggle("hidden");
+}
+
+/* スクロール制御 */
 window.addEventListener("scroll", function() {
   const intro = document.getElementById("intro");
   const btn = document.getElementById("fixedBtn");

@@ -28,13 +28,25 @@ fbq('track', 'PageView');
 body {
   margin: 0;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, #111, #ffcc00);
+  background: linear-gradient(to bottom, #222, #ffcc00);
   color: #fff;
   text-align: center;
 }
 
 header {
-  padding: 40px 20px;
+  padding: 50px 20px 20px;
+}
+
+header h1 {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.sub {
+  color: #ccc;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 section {
@@ -44,18 +56,26 @@ section {
 button {
   display: block;
   width: 90%;
-  max-width: 320px;
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 10px;
+  max-width: 340px;
+  margin: 12px auto;
+  padding: 18px;
+  border-radius: 12px;
   border: none;
   background: #ffcc00;
   color: #000;
+  font-size: 16px;
   font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .hidden {
   display: none;
+}
+
+.result {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .line-btn {
@@ -63,41 +83,57 @@ button {
   margin: 30px auto;
   background: #00c300;
   color: #fff;
-  padding: 15px;
+  padding: 18px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  max-width: 300px;
+  max-width: 320px;
+  font-size: 18px;
+}
+
+.note {
+  font-size: 12px;
+  color: #eee;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🔥刺さるファーストビュー -->
 <header>
-<h1>30秒であなたに合う<br>トレーニング方法がわかる</h1>
-<p style="font-size:12px;">※初心者の方がほとんどです</p>
+<h1>
+3ヶ月で体が変わらなかった人へ
+</h1>
+
+<p style="font-size:20px; font-weight:bold; color:#ffcc00;">
+あなたに合うダイエット法が<br>30秒でわかる
+</p>
+
+<p class="sub">
+※無理な勧誘なし・初心者OK
+</p>
 </header>
 
 <!-- Q1 -->
 <section id="q1">
 <h2>あなたの目的は？</h2>
-<button onclick="setType('diet')">ダイエット</button>
-<button onclick="setType('muscle')">筋肉をつけたい</button>
-<button onclick="setType('health')">健康・運動不足解消</button>
+<button onclick="setType('diet')">本気で痩せたい</button>
+<button onclick="setType('muscle')">かっこいい体になりたい</button>
+<button onclick="setType('health')">運動不足を解消したい</button>
 </section>
 
 <!-- Q2 -->
 <section id="q2" class="hidden">
-<h2>今の悩みは？</h2>
-<button onclick="setLevel('low')">体重が落ちない</button>
-<button onclick="setLevel('mid')">リバウンドした</button>
-<button onclick="setLevel('high')">何をすればいいかわからない</button>
+<h2>今一番の悩みは？</h2>
+<button onclick="setLevel('low')">何をしても痩せない</button>
+<button onclick="setLevel('mid')">リバウンドしてしまう</button>
+<button onclick="setLevel('high')">やり方がわからない</button>
 </section>
 
 <!-- Q3 -->
 <section id="q3" class="hidden">
-<h2>運動習慣は？</h2>
+<h2>現在の運動習慣は？</h2>
 <button onclick="showResult('beginner')">ほぼしていない</button>
 <button onclick="showResult('middle')">週1くらい</button>
 <button onclick="showResult('advanced')">定期的にしている</button>
@@ -106,22 +142,31 @@ button {
 <!-- RESULT -->
 <section id="result" class="hidden">
 <h2>診断結果</h2>
-<p id="resultText"></p>
 
-<p style="color:#ffcc00; font-weight:bold;">
-今なら初回体験500円
+<p id="resultText" class="result"></p>
+
+<p>
+あなたには<br>
+<strong>プロの管理トレーニング</strong>が必要です
+</p>
+
+<p style="color:#ffcc00; font-size:20px; font-weight:bold;">
+今だけ体験500円
 </p>
 
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
 class="line-btn">
-LINEで体験予約する
+今すぐLINEで予約する
 </a>
+
+<p class="note">
+※無理な勧誘は一切ありません
+</p>
 </section>
 
 <script>
 let userType = "";
-let userLevel = "";
 
 function setType(type){
   userType = type;
@@ -129,7 +174,6 @@ function setType(type){
 }
 
 function setLevel(level){
-  userLevel = level;
   next('q3');
 }
 
@@ -138,15 +182,15 @@ function next(id){
   document.getElementById(id).classList.remove("hidden");
 }
 
-function showResult(activity){
+function showResult(){
   let text = "";
 
   if(userType === "diet"){
-    text = "あなたは【痩せたいのに続かないタイプ】です。<br>プロのサポートで一気に変われます🔥";
+    text = "あなたは【痩せたいのに続かないタイプ】です";
   } else if(userType === "muscle"){
-    text = "あなたは【自己流で伸び悩みタイプ】です。<br>正しいフォームと食事で一気に変わります💪";
+    text = "あなたは【自己流で伸び悩みタイプ】です";
   } else {
-    text = "あなたは【運動不足改善タイプ】です。<br>無理なく継続できる環境が必要です✨";
+    text = "あなたは【運動不足改善タイプ】です";
   }
 
   document.getElementById("resultText").innerHTML = text;

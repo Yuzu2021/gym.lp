@@ -34,28 +34,11 @@ body {
 }
 
 header {
-  padding: 60px 20px 20px;
-}
-
-header h1 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-
-.start-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 15px;
-  max-width: 300px;
-  background: #ffcc00;
-  color: #000;
-  border-radius: 10px;
-  font-weight: bold;
-  text-decoration: none;
+  padding: 40px 20px;
 }
 
 section {
-  padding: 40px 20px;
+  padding: 30px 20px;
 }
 
 button {
@@ -64,22 +47,15 @@ button {
   max-width: 320px;
   margin: 10px auto;
   padding: 15px;
-  border: none;
   border-radius: 10px;
+  border: none;
   background: #ffcc00;
   color: #000;
-  font-size: 16px;
   font-weight: bold;
 }
 
 .hidden {
   display: none;
-}
-
-.result {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 20px;
 }
 
 .line-btn {
@@ -98,58 +74,39 @@ button {
 
 <body>
 
-<!-- 🔥ここ追加した部分 -->
 <header>
-<h1>
-30秒であなたに合う<br>
-ダイエット・トレーニング方法がわかる
-</h1>
-
-<a href="#q1" class="start-btn">
-無料診断をはじめる
-</a>
-
-<p style="font-size:12px; color:#ccc;">
-※初心者の方がほとんどです
-</p>
+<h1>30秒であなたに合う<br>トレーニング方法がわかる</h1>
+<p style="font-size:12px;">※初心者の方がほとんどです</p>
 </header>
 
-<!-- 質問① -->
+<!-- Q1 -->
 <section id="q1">
 <h2>あなたの目的は？</h2>
-<button onclick="next('q2')">ダイエットしたい</button>
-<button onclick="next('q2')">筋肉をつけたい</button>
-<button onclick="next('q2')">健康・運動不足解消</button>
+<button onclick="setType('diet')">ダイエット</button>
+<button onclick="setType('muscle')">筋肉をつけたい</button>
+<button onclick="setType('health')">健康・運動不足解消</button>
 </section>
 
-<!-- 質問② -->
+<!-- Q2 -->
 <section id="q2" class="hidden">
 <h2>今の悩みは？</h2>
-<button onclick="next('q3')">体重が落ちない</button>
-<button onclick="next('q3')">リバウンドした</button>
-<button onclick="next('q3')">何をすればいいかわからない</button>
+<button onclick="setLevel('low')">体重が落ちない</button>
+<button onclick="setLevel('mid')">リバウンドした</button>
+<button onclick="setLevel('high')">何をすればいいかわからない</button>
 </section>
 
-<!-- 質問③ -->
+<!-- Q3 -->
 <section id="q3" class="hidden">
 <h2>運動習慣は？</h2>
-<button onclick="showResult()">ほぼしていない</button>
-<button onclick="showResult()">週1くらい</button>
-<button onclick="showResult()">定期的にしている</button>
+<button onclick="showResult('beginner')">ほぼしていない</button>
+<button onclick="showResult('middle')">週1くらい</button>
+<button onclick="showResult('advanced')">定期的にしている</button>
 </section>
 
-<!-- 結果 -->
+<!-- RESULT -->
 <section id="result" class="hidden">
 <h2>診断結果</h2>
-
-<p class="result">
-あなたは「自己流で失敗しやすいタイプ」です
-</p>
-
-<p>
-正しいトレーニングと食事管理で<br>
-最短で理想の体に近づけます🔥
-</p>
+<p id="resultText"></p>
 
 <p style="color:#ffcc00; font-weight:bold;">
 今なら初回体験500円
@@ -160,21 +117,43 @@ onclick="fbq('track','Lead')"
 class="line-btn">
 LINEで体験予約する
 </a>
-
-<p style="font-size:12px; color:#ccc;">
-※無理な勧誘はありません
-</p>
 </section>
 
 <script>
-function next(nextId){
-  document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
-  document.getElementById(nextId).classList.remove("hidden");
+let userType = "";
+let userLevel = "";
+
+function setType(type){
+  userType = type;
+  next('q2');
 }
 
-function showResult(){
+function setLevel(level){
+  userLevel = level;
+  next('q3');
+}
+
+function next(id){
+  document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function showResult(activity){
+  let text = "";
+
+  if(userType === "diet"){
+    text = "あなたは【痩せたいのに続かないタイプ】です。<br>プロのサポートで一気に変われます🔥";
+  } else if(userType === "muscle"){
+    text = "あなたは【自己流で伸び悩みタイプ】です。<br>正しいフォームと食事で一気に変わります💪";
+  } else {
+    text = "あなたは【運動不足改善タイプ】です。<br>無理なく継続できる環境が必要です✨";
+  }
+
+  document.getElementById("resultText").innerHTML = text;
+
   document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
   document.getElementById("result").classList.remove("hidden");
+
   fbq('track','Lead');
 }
 </script>

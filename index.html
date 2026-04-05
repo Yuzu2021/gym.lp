@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>apricot gym</title>
+<title>apricot gym 診断</title>
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,150 +20,164 @@ s.parentNode.insertBefore(t,s)}
 (window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '508478480441055');
+fbq('init', 'ここにピクセルID');
 fbq('track', 'PageView');
 </script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=508478480441055&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
 body {
+  margin: 0;
   font-family: sans-serif;
   background: linear-gradient(to bottom, #111, #ffcc00);
   color: #fff;
-}
-img, video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-section {
-  padding: 60px 20px;
   text-align: center;
 }
-.card {
-  background: rgba(0,0,0,0.7);
-  margin: 10px auto;
-  padding: 20px;
-  max-width: 300px;
-  border-radius: 10px;
+
+header {
+  padding: 60px 20px 20px;
 }
+
+header h1 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.start-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 300px;
+  background: #ffcc00;
+  color: #000;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+button {
+  display: block;
+  width: 90%;
+  max-width: 320px;
+  margin: 10px auto;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #ffcc00;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.result {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 .line-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+  display: block;
+  margin: 30px auto;
   background: #00c300;
   color: #fff;
-  padding: 15px 20px;
+  padding: 15px;
   border-radius: 50px;
-  font-weight: bold;
   text-decoration: none;
-  z-index: 100;
-}
-.tel-fixed {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff3b3b;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 50px;
   font-weight: bold;
-  text-decoration: none;
-  z-index: 100;
-}
-.gold {
-  color: #ffcc00;
-  font-weight: bold;
-}
-.price {
-  font-size: 38px;
-  color: #ff3b3b;
-  font-weight: bold;
+  max-width: 300px;
 }
 </style>
 </head>
 
 <body>
 
-<img src="./banner.gym.jpg">
-<img src="./i.jpg">
+<!-- 🔥ここ追加した部分 -->
+<header>
+<h1>
+30秒であなたに合う<br>
+ダイエット・トレーニング方法がわかる
+</h1>
 
-<video src="mv2.mp4" autoplay muted loop playsinline></video>
-
-<!-- CTA① -->
-<a href="https://lin.ee/tLpiKUi"
-onclick="fbq('track','Lead')"
-style="display:block;background:#ffcc00;color:#000;padding:15px;text-align:center;font-size:20px;border-radius:10px;margin:20px;text-decoration:none;font-weight:bold;">
-今すぐLINEで体験予約する
+<a href="#q1" class="start-btn">
+無料診断をはじめる
 </a>
 
-<p style="font-size:14px; color:#ccc; text-align:center;">
-※無理な勧誘は一切ありません<br>
-※運動初心者の方がほとんどです
+<p style="font-size:12px; color:#ccc;">
+※初心者の方がほとんどです
+</p>
+</header>
+
+<!-- 質問① -->
+<section id="q1">
+<h2>あなたの目的は？</h2>
+<button onclick="next('q2')">ダイエットしたい</button>
+<button onclick="next('q2')">筋肉をつけたい</button>
+<button onclick="next('q2')">健康・運動不足解消</button>
+</section>
+
+<!-- 質問② -->
+<section id="q2" class="hidden">
+<h2>今の悩みは？</h2>
+<button onclick="next('q3')">体重が落ちない</button>
+<button onclick="next('q3')">リバウンドした</button>
+<button onclick="next('q3')">何をすればいいかわからない</button>
+</section>
+
+<!-- 質問③ -->
+<section id="q3" class="hidden">
+<h2>運動習慣は？</h2>
+<button onclick="showResult()">ほぼしていない</button>
+<button onclick="showResult()">週1くらい</button>
+<button onclick="showResult()">定期的にしている</button>
+</section>
+
+<!-- 結果 -->
+<section id="result" class="hidden">
+<h2>診断結果</h2>
+
+<p class="result">
+あなたは「自己流で失敗しやすいタイプ」です
 </p>
 
-<img src="./gaikan.jpg">
+<p>
+正しいトレーニングと食事管理で<br>
+最短で理想の体に近づけます🔥
+</p>
 
-<section>
-<h2>✨理想の身体を手に入れる✨</h2>
-<p class="gold">本気で変わりたいあなたへ</p>
-</section>
+<p style="color:#ffcc00; font-weight:bold;">
+今なら初回体験500円
+</p>
 
-<video src="mv.mp4" autoplay muted loop playsinline></video>
-
-<img src="./gym.500yen.jpg">
-
-<!-- CTA② -->
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
-style="display:block;background:#ffcc00;color:#000;padding:15px;text-align:center;font-size:20px;border-radius:10px;margin:20px;text-decoration:none;font-weight:bold;">
-今すぐLINEで体験予約する
+class="line-btn">
+LINEで体験予約する
 </a>
 
-<section>
-<h2>【選ばれる理由】</h2>
-<div class="card">💪知識豊富なプロからの指導</div>
-<div class="card">🍖食事サポートあり</div>
-<div class="card">🏋️大会入賞者在籍</div>
+<p style="font-size:12px; color:#ccc;">
+※無理な勧誘はありません
+</p>
 </section>
 
-<img src="./3.jpg">
-<img src="./2.jpg">
+<script>
+function next(nextId){
+  document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
+  document.getElementById(nextId).classList.remove("hidden");
+}
 
-<section>
-<h2>⭐️500円体験（30分）⭐️</h2>
-</section>
-
-<img src="./gym.k.jpg">
-<img src="./images.gym.jpeg">
-
-<!-- CTA③ -->
-<a href="https://lin.ee/tLpiKUi"
-onclick="fbq('track','Lead')"
-style="display:block;background:#ffcc00;color:#000;padding:15px;text-align:center;font-size:20px;border-radius:10px;margin:20px;text-decoration:none;font-weight:bold;">
-今すぐLINEで体験予約する
-</a>
-
-<!-- 電話 -->
-<a href="tel:09023559371" class="tel-fixed"
-onclick="fbq('track','Contact')">
-📞 電話する
-</a>
-
-<!-- 固定LINE -->
-<a href="https://lin.ee/tLpiKUi" class="line-btn"
-onclick="fbq('track','Lead')">
-LINE予約
-</a>
+function showResult(){
+  document.querySelectorAll("section").forEach(el => el.classList.add("hidden"));
+  document.getElementById("result").classList.remove("hidden");
+  fbq('track','Lead');
+}
+</script>
 
 </body>
 </html>

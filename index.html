@@ -27,6 +27,7 @@ fbq('track', 'PageView');
 <style>
 body {
   margin: 0;
+  padding-bottom: 100px; /* ←これで被り防止 */
   font-family: sans-serif;
   background: #111;
   color: #fff;
@@ -128,11 +129,9 @@ img {
 <!-- 共感 -->
 <div id="intro" class="fade">
 
-<!-- 🔥外観 -->
 <img src="gaikan.jpg">
 <p class="small">※実際の店舗外観です</p>
 
-<!-- 🔥トレーニング（最初に見せる） -->
 <img src="training1.jpg">
 <img src="training2.jpg">
 
@@ -146,12 +145,10 @@ img {
 <button onclick="start()">はい、あります</button>
 </div>
 
-<!-- プログレス -->
 <div class="progress hidden" id="progressWrap">
 <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<!-- Q1 -->
 <div id="q1" class="hidden fade">
 <h3>Q1. あなたの目的は？</h3>
 <button onclick="next(1,'diet')">本気で痩せたい</button>
@@ -159,7 +156,6 @@ img {
 <button onclick="next(1,'health')">健康目的</button>
 </div>
 
-<!-- Q2 -->
 <div id="q2" class="hidden fade">
 <h3>Q2. 今一番の悩みは？</h3>
 <button onclick="next(2)">何をしても痩せない</button>
@@ -167,7 +163,6 @@ img {
 <button onclick="next(2)">やり方がわからない</button>
 </div>
 
-<!-- Q3 -->
 <div id="q3" class="hidden fade">
 <h3>Q3. 運動習慣は？</h3>
 <button onclick="showResult()">ほぼしていない</button>
@@ -175,7 +170,6 @@ img {
 <button onclick="showResult()">定期的にしている</button>
 </div>
 
-<!-- RESULT -->
 <div id="result" class="hidden fade">
 <h2>診断結果</h2>
 
@@ -199,7 +193,6 @@ img {
 ・継続率90%
 </p>
 
-<!-- 🔥ビフォーアフター -->
 <h3>実際の変化</h3>
 <img src="i.jpg">
 <img src="beforeafter2.jpg">
@@ -218,10 +211,11 @@ class="line-btn">
 
 </div>
 
-<!-- 🔥追従ボタン（常に表示） -->
+<!-- 追従ボタン -->
 <a href="https://lin.ee/tLpiKUi"
 onclick="fbq('track','Lead')"
-class="fixed-btn">
+class="fixed-btn"
+id="fixedBtn">
 LINEで予約する
 </a>
 
@@ -266,6 +260,20 @@ function showResult(){
 
   fbq('track','Lead');
 }
+
+/* 🔥スクロールで追従ボタン制御 */
+window.addEventListener("scroll", function() {
+  const intro = document.getElementById("intro");
+  const btn = document.getElementById("fixedBtn");
+
+  const introBottom = intro.getBoundingClientRect().bottom;
+
+  if(introBottom > 0){
+    btn.style.display = "none";
+  } else {
+    btn.style.display = "block";
+  }
+});
 </script>
 
 </body>
